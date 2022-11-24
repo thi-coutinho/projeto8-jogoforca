@@ -1,6 +1,9 @@
 export default function Chute() {
     return(
-        <>Chute
-        </>
+        <div className="chute">
+            <p>Já sei a palavra!</p>
+            <input type="text" />
+            <button>Chutar</button>
+        </div>
     )
 }

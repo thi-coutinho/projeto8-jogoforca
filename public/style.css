@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap');
+
+main>div {
+    width: 900px;
+    margin: 15px auto;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+input {
+    width: 353px;
+    height: 40px;
+}
+
+.chute {
+
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.chute p {
+    color: #000000;
+}
+
+.chute button {
+    width: 100px;
+    height: 40px;
+    background: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+    color: #3C76A1;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.jogo {
+    margin-top: 59px;
+}
+
+.jogo img {
+    width: 300px;
+}
+
+.containerVertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.underline {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 68px;
+}
+
+.jogo button {
+    color: #ffff;
+    margin-top: 74px;
+    font-size: 20px;
+    font-weight: 700;
+    width: 200px;
+    height: 60px;
+    background: #27AE60;
+    border-radius: 8px;
+}
+
+.jogo {
+    margin-bottom: 70px;
+}
+
+.letras {
+    max-width: 700px;
+}
+
+button {
+    color: #39739D;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    min-width: 40px;
+    min-height: 40px;
+    background: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+}
+
+.letras button:disabled {
+    color: #798A9F;
+    background-color: #9FAAB5;
+}
+
+.letras button:hover {
+    color: #798A9F;
+    background: #9FAAB5;
+
+}
