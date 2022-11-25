@@ -1,16 +1,17 @@
 export default function Underlines({palavra,letrasClicadas,statusJogo}) {
     let letrasUnderlines
+    const palavraString = palavra.toString().replaceAll(",","")
     if (statusJogo==="prejogo") {
         return <></>
     } else if (statusJogo==="jogando"){
         letrasUnderlines = palavra.map((l) => letrasClicadas.includes(l) ? l:" _ ")
+        letrasUnderlines=letrasUnderlines.toString().replaceAll(",","")
     } else {
-        letrasUnderlines = palavra
+        letrasUnderlines = palavraString
     }
 
+
     return (
-        <div className={`underline ${statusJogo}`}>{letrasUnderlines.map((l,i) => (
-            <span key={i} > {l} </span>)
-            )}</div>
+        <div data-test="word" data-answer={statusJogo!=="prejogo" ? `${palavraString}` : ""} className={`underline ${statusJogo}`}>{letrasUnderlines}</div>
     )
 }

@@ -20,9 +20,9 @@ export default function Jogo({statusJogo,
     }
     return (
         <div className="jogo">
-            <img src={`./assets/forca${erros}.png`} alt=""/>
+            <img data-test="game-image" src={`./assets/forca${erros}.png`} alt=""/>
             <div className="containerVertical">
-                <button onClick={escolherPalavra}>Escolher Palavra</button>
+                <button data-test="choose-word" onClick={escolherPalavra}>Escolher Palavra</button>
                 <Underlines palavra={palavra} letrasClicadas = {letrasClicadas} statusJogo={statusJogo}/>
                 {/* one-liner for Underlines below  */}
                 {/* {palavra ? <div className="underline">{palavra.map((l,i) => (

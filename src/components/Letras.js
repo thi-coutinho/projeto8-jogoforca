@@ -30,10 +30,12 @@ export default function Letras({alfabeto,palavra,statusJogo,setStatusJogo,erros,
             {
                 alfabeto.map(
                     (letra) => (
-                        <button key={letra} 
+                        <button 
+                            data-test="letter" 
+                            key={letra} 
                             onClick={()=>checkLetra(letra)} 
                             disabled={desabilitaBotoes(statusJogo,letra, letrasClicadas)}
-                        >
+                            >
                             {letra.toUpperCase()}
                         </button>
                     )

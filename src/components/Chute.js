@@ -15,8 +15,16 @@ export default function Chute({palavra,statusJogo,setStatusJogo,setErros,chute,s
     return(
         <div className="chute">
             <p>Já sei a palavra!</p>
-            <input onChange={(e)=>setChute(e.target.value)} type="text" value={chute}/>
-            <button onClick={chutarPalavra} disabled={statusJogo!=="jogando"}>Chutar</button>
+            <input  data-test="guess-input"
+                    onChange={(e)=>setChute(e.target.value)}
+                    onKeyDown={(e)=> e.key ==="Enter"? chutarPalavra() : null}
+                    type="text" value={chute}
+                    disabled={statusJogo!=="jogando"}/>
+            <button data-test="guess-button"
+                    onClick={chutarPalavra}
+                    disabled={statusJogo!=="jogando"}
+                    >Chutar
+            </button>
         </div>
     )
 }
