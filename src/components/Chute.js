@@ -6,7 +6,7 @@ export default function Chute({ palavra, statusJogo, setStatusJogo, setErros, ch
             .replaceAll(",", "")
             .normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
-        if (palavraString === chute) {
+        if (palavraString === chute.toLowerCase()) {
             setStatusJogo("ganhou")
         } else {
             setStatusJogo("perdeu")
