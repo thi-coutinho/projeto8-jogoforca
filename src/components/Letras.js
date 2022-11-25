@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Letras(props) {
+export default function Letras({alfabeto,palavra,statusJogo,setStatusJogo,erros,setErros,letrasCorretas,setLetrasCorretas}) {
     const [letrasClicadas,setLetraClicadas] = useState("")
 
     function checkLetra(letra) {
@@ -8,21 +8,33 @@ export default function Letras(props) {
 
         setLetraClicadas(letrasClicadas+letra)
 
-        if (props.palavra.toString().includes(letra)) {
-            props.setLetrasCorretas(props.letrasCorretas+letra)
+        if (palavra.toString().includes(letra)) {
+            setLetrasCorretas(letrasCorretas+letra)
+            if (palavra.every((p)=>(letrasCorretas+letra).includes(p))){
+                setStatusJogo("ganhou")
+            } 
         } else {
-            props.setErros(props.erros+1)
+            setErros(erros+1)
+            if (erros+1 === 6) setStatusJogo("perdeu")
         }
         
+    }
+
+    function desabilitaBotoes(statusJogo,letra, letrasClicadas) {
+        if (statusJogo !== "jogando"){
+            return true
+        } else if (letrasClicadas.includes(letra)) {
+            return true
+        } else return false
     }
     return (
         <div className="letras">
             {
-                props.alfabeto.map(
+                alfabeto.map(
                     (letra) => (
                         <button key={letra} 
                             onClick={()=>checkLetra(letra)} 
-                            disabled={!props.jogoIniciado || letrasClicadas.includes(letra)}
+                            disabled={desabilitaBotoes(statusJogo,letra, letrasClicadas)}
                         >
                             {letra.toUpperCase()}
                         </button>

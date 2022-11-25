@@ -1,9 +1,24 @@
-export default function Chute() {
+import { useState } from "react"
+
+export default function Chute({palavra,statusJogo,setStatusJogo,setErros}) {
+    const [chute,setChute] = useState("")
+
+    function chutarPalavra() {
+        const palavraString = palavra.toString().replaceAll(",","")
+        if (palavraString === chute){
+            setStatusJogo("ganhou")
+        } else {
+            setStatusJogo("perdeu")
+            setErros(6)
+        }
+    }
+
+
     return(
         <div className="chute">
             <p>Já sei a palavra!</p>
-            <input type="text" />
-            <button>Chutar</button>
+            <input onChange={(e)=>setChute(e.target.value)} type="text" value={chute}/>
+            <button onClick={chutarPalavra} disabled={statusJogo!=="jogando"}>Chutar</button>
         </div>
     )
 }
