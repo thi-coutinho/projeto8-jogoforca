@@ -8,9 +8,12 @@ export default function Letras({ alfabeto, palavra, statusJogo, setStatusJogo, e
 
         const letrasClicadasUpdate = letrasClicadas + letra
         setLetrasClicadas(letrasClicadasUpdate)
-
-        if (palavra.toString().includes(letra)) {
-            if (palavra.every((p) => letrasClicadasUpdate.includes(p))) {
+        const palavraString = palavra.toString()
+            .replaceAll(",", "")
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+        if (palavraString.includes(letra)) {
+            if ([...palavraString].every((p) => letrasClicadasUpdate.includes(p))) {
                 setStatusJogo("ganhou")
             }
         } else {

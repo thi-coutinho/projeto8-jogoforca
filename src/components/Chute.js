@@ -2,7 +2,10 @@ export default function Chute({ palavra, statusJogo, setStatusJogo, setErros, ch
     const fatalError = 6
 
     function chutarPalavra() {
-        const palavraString = palavra.toString().replaceAll(",", "")
+        const palavraString = palavra.toString()
+            .replaceAll(",", "")
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
         if (palavraString === chute) {
             setStatusJogo("ganhou")
         } else {

@@ -4,7 +4,9 @@ export default function Underlines({palavra,letrasClicadas,statusJogo}) {
     if (statusJogo==="prejogo") {
         return <></>
     } else if (statusJogo==="jogando"){
-        letrasUnderlines = palavra.map((l) => letrasClicadas.includes(l) ? l:" _ ")
+
+        letrasUnderlines = palavra.map((l) => (
+            letrasClicadas.includes(l.normalize('NFD').replace(/[\u0300-\u036f]/g, '')) ? l:" _ "))
         letrasUnderlines=letrasUnderlines.toString().replaceAll(",","")
     } else {
         letrasUnderlines = palavraString
