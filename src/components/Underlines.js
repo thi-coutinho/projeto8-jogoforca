@@ -1,9 +1,9 @@
-export default function Underlines({palavra,letrasCorretas,statusJogo}) {
+export default function Underlines({palavra,letrasClicadas,statusJogo}) {
     let letrasUnderlines
     if (statusJogo==="prejogo") {
         return <></>
     } else if (statusJogo==="jogando"){
-        letrasUnderlines = palavra.map((l) => letrasCorretas.includes(l) ? l:" _ ")
+        letrasUnderlines = palavra.map((l) => letrasClicadas.includes(l) ? l:" _ ")
     } else {
         letrasUnderlines = palavra
     }

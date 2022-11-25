@@ -7,7 +7,8 @@ function App() {
   const [statusJogo,setStatusJogo] = useState("prejogo") // pode assumir os valores "prejogo", "jogando", "perdeu", "ganhou"
   const [palavra,setPalavra] = useState([])
   const [erros,setErros] = useState(0)
-  const [letrasCorretas,setLetrasCorretas] = useState("")
+  const [letrasClicadas,setLetrasClicadas] = useState("")
+  const [chute,setChute] = useState("")
   
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
   
@@ -17,10 +18,13 @@ function App() {
       <Jogo statusJogo = {statusJogo}
             setStatusJogo = {setStatusJogo}
             erros={erros}
+            setErros={setErros}
             palavra={palavra}
             setPalavra={setPalavra}
             palavras={palavras}
-            letrasCorretas={letrasCorretas}
+            letrasClicadas={letrasClicadas}
+            setLetrasClicadas={setLetrasClicadas}
+            setChute={setChute}
       />
       <Letras alfabeto={alfabeto}
               palavra={palavra}
@@ -28,14 +32,16 @@ function App() {
               setStatusJogo = {setStatusJogo}
               erros={erros}
               setErros={setErros}
-              letrasCorretas={letrasCorretas}
-              setLetrasCorretas={setLetrasCorretas}
+              letrasClicadas={letrasClicadas}
+              setLetrasClicadas={setLetrasClicadas}
 
       />
       <Chute  palavra={palavra}
               statusJogo = {statusJogo}
               setStatusJogo = {setStatusJogo}
               setErros={setErros}
+              chute={chute}
+              setChute={setChute}
 
       />
     </main>

@@ -1,16 +1,14 @@
-import { useState } from "react"
-
-export default function Letras({alfabeto,palavra,statusJogo,setStatusJogo,erros,setErros,letrasCorretas,setLetrasCorretas}) {
-    const [letrasClicadas,setLetraClicadas] = useState("")
+export default function Letras({alfabeto,palavra,statusJogo,setStatusJogo,erros,setErros,letrasClicadas,setLetrasClicadas}) {
+    
 
     function checkLetra(letra) {
         if (letrasClicadas.includes(letra)) return
 
-        setLetraClicadas(letrasClicadas+letra)
+        const letrasClicadasUpdate = letrasClicadas + letra
+        setLetrasClicadas(letrasClicadasUpdate)
 
         if (palavra.toString().includes(letra)) {
-            setLetrasCorretas(letrasCorretas+letra)
-            if (palavra.every((p)=>(letrasCorretas+letra).includes(p))){
+            if (palavra.every((p)=>letrasClicadasUpdate.includes(p))){
                 setStatusJogo("ganhou")
             } 
         } else {

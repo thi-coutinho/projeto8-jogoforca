@@ -1,7 +1,5 @@
-import { useState } from "react"
-
-export default function Chute({palavra,statusJogo,setStatusJogo,setErros}) {
-    const [chute,setChute] = useState("")
+export default function Chute({palavra,statusJogo,setStatusJogo,setErros,chute,setChute}) {
+    
 
     function chutarPalavra() {
         const palavraString = palavra.toString().replaceAll(",","")
