@@ -1,14 +1,13 @@
 import Underlines from "./Underlines"
 
-export default function Jogo({statusJogo,
-    setStatusJogo,erros, setErros, palavra, setPalavra, palavras,letrasClicadas,setLetrasClicadas,setChute }) {
-    
+export default function Jogo({ statusJogo,
+    setStatusJogo, erros, setErros, palavra, setPalavra, palavras, letrasClicadas, setLetrasClicadas, setChute }) {
+
     function escolheAleatorio(lista) {
         // retorna já uma a palavra escolhida aleatoriamente em forma de lista
         const items = lista.length
         const indice = Math.floor(Math.random() * items)
-        const arrayItem = [...lista[indice]]
-        return arrayItem
+        return [...lista[indice]]
     }
     function escolherPalavra() {
         setStatusJogo("jogando")
@@ -20,14 +19,10 @@ export default function Jogo({statusJogo,
     }
     return (
         <div className="jogo">
-            <img data-test="game-image" src={`./assets/forca${erros}.png`} alt=""/>
+            <img data-test="game-image" src={`./assets/forca${erros}.png`} alt="" />
             <div className="containerVertical">
                 <button data-test="choose-word" onClick={escolherPalavra}>Escolher Palavra</button>
-                <Underlines palavra={palavra} letrasClicadas = {letrasClicadas} statusJogo={statusJogo}/>
-                {/* one-liner for Underlines below  */}
-                {/* {palavra ? <div className="underline">{palavra.map((l,i) => (
-                <span key={i} > { letrasClicadas.includes(l) ? ` ${l} `:" _ "}</span>)
-                )}</div> : <></>} */}
+                <Underlines palavra={palavra} letrasClicadas={letrasClicadas} statusJogo={statusJogo} />
             </div>
         </div>
     )

@@ -42,6 +42,7 @@ input {
 
 .jogo {
     margin-top: 59px;
+    margin-bottom: 70px;
 }
 
 .jogo img {
@@ -56,7 +57,7 @@ input {
 }
 
 .underline {
-    font-family: 'Noto Sans';
+    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 50px;
@@ -78,10 +79,6 @@ input {
     height: 60px;
     background: #27AE60;
     border-radius: 8px;
-}
-
-.jogo {
-    margin-bottom: 70px;
 }
 
 .letras {
